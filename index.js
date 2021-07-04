@@ -49,6 +49,6 @@ app.get("/",(req,res)=>{
 }).listen(port, () => {
 
 
-console.log('Listening to PORT no at ${port}');
+console.log('Listening to PORT no at 3000');
 }) 
  
