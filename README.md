@@ -1,2 +1,2 @@
 # Food_Blog
- This is a Fodd Blog
+ This is a Food Blog
