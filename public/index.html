@@ -1,0 +1,743 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+
+  <style>
+  body {
+      font: 400 15px Lato, sans-serif;
+      line-height: 1.8;
+   /*   color: #818181;*/
+  }
+  h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      color: #303030;
+      font-weight: 600;
+      margin-bottom: 30px;
+  }
+  h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      color: #303030;
+      font-weight: 400;
+      margin-bottom: 30px;
+  }
+  .jumbotron {
+      color: #fff;
+      padding: 100px 25px;
+      font-family: Montserrat, sans-serif;
+  }
+  .container-fluid {
+      padding: 60px 50px;
+  }
+  .bg-grey {
+      background-color: #f6f6f6;
+  }
+  .logo-small {
+      color: #f4511e;
+      font-size: 50px;
+  }
+  .logo {
+      color: #f4511e;
+      font-size: 200px;
+  }
+  .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+  .thumbnail img {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 10px;
+  }
+  .carousel-control.right, .carousel-control.left {
+      background: initial;
+    width: 5%;
+    color: #000;
+    z-index: 10;
+    top: -10px;
+}
+  }
+  .carousel-indicators li {
+  background-color:grey;
+      border-color:black;
+	   padding: 5px;
+  }
+  .carousel-indicators li.active {
+      background-color: black;
+	  background-color:grey;
+   padding: 5px;
+  }
+  .item h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      font-weight: 400;
+      font-style: italic;
+      margin: 70px 0;
+  }
+  .item span {
+      font-style: normal;
+  }
+  .flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #ffd280;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+  .panel {
+      border: 1px solid #f4511e;
+      border-radius:0 !important;
+      transition: box-shadow 0.5s;
+width:80%;
+height:100%;
+  }
+  .panel:hover {
+      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  .panel-footer .btn:hover {
+      border: 1px solid #f4511e;
+      background-color: #fff !important;
+      color: #f4511e;
+  }
+  .panel-heading {
+      color: #fff !important;
+      background-color: black !important;
+      padding: 25px;
+      border-bottom: 1px solid transparent;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+  }
+
+
+  .panel-footer {
+      background-color: white !important;
+  }
+  .panel-footer h3 {
+      font-size: 32px;
+  }
+  .panel-footer h4 {
+      color: #aaa;
+      font-size: 14px;
+  }
+  .panel-footer .btn {
+      margin: 15px 0;
+      background-color: #f4511e;
+      color: #fff;
+  }
+
+  .navbar {
+      margin-bottom: 0;
+      background-color: black;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: #f4511e !important;
+      background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+  }
+  footer .glyphicon {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: black;
+  }
+  .slideanim {visibility:hidden;}
+  .slide {
+      animation-name: slide;
+      -webkit-animation-name: slide;
+      animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      visibility: visible;
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+  }
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+a{
+text-decoration:none;
+}
+.Cnext{
+border-bottom: 8px solid;
+    border-left: 8px solid;
+    transform: rotate(-135deg);
+    right: 10px;
+}
+
+element.style {
+}
+.Cnext {
+    border-bottom: 8px solid;
+    border-left: 8px solid;
+    transform: rotate(-135deg);
+    right: 10px;
+}
+.Carrows {
+    width: 20px;
+    height: 20px;
+    border-color: #000;
+    position: absolute;
+    top: 50%;
+    margin-top: -31px;
+}
+.Cprev{
+	border-bottom: 8px solid;
+    border-left: 8px solid;
+    transform: rotate(45deg);
+    left: 10px;
+}
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<Section>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+
+
+    <div class="navbar-header">
+
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#myPage">Home</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+    <li><a class="move" href="#About">About</a></li>
+		<li><a class="move" href="#snacks">Snacks</a></li>
+		<li><a class="move" href="#juices">Juices</a></li>
+		<li><a class="move" href="#maincourse">Main course</a></li>
+		<li><a class="move" href="#contact">Contact Us</a></li>
+		<li><a  target="_blank" href="https://forms.gle/7WU4rJh1Ej5UcECx8">Share Your Recipe</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class=" text-center">
+
+  <img src="images\bgc.jpg" width=100% height=20%>
+<h1>Our mission is to provide an unforgettable experience</h1>
+</div>
+
+<!-- Container (About Section) -->
+<div id="About" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>Food Blog</h2><br>
+      <p>
+Some food sites splash mouth-watering pictures of delicious dishes across their pages and make us want to rush right out to eat. Others use the vibrant colors of food as a jumping-off point for a beautiful design. And still others integrate it into the functionality of the site, turning food into buttons, page loading devices, and more. The following websites not only make your mouth water, they demand that you explore them to the fullest extent so that you can see what is hidden in every nook and cranny. In short, they are not only gorgeous, they are fun and clever and easy to use, too. Anyone getting hungry?
+</p>
+
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-grey">
+  <div class="row">
+    <div class="col-sm-4">
+	<img src="small.jpg">
+    </div>
+    <div class="col-sm-8">
+      <p>The importance of food is obvious and essential. Healthy food provides us the nutrients and energy to develop and grow, be active and healthy, to move, play, work, think and learn.
+Foods are directly related to our body and mental and social health because each food or liquid contains particular nutrition such as carbohydrates, protein, vitamins, minerals, fats, etc, which are very necessary for our physical and mental growth.
+Food and water are the main sources of nutrition and strengthening the body, but many of the foods we eat do not have any nutritional values.
+On the contrary, they lead to health problems such as diabetes and heart disease. Therefore, you should choose healthy and balanced foods that can provide enough nutritional values ​​for the body.</p>
+	</div>
+  </div>
+</div>
+</Section>
+
+
+
+<!-- Container (foodItems Section) -->
+<Section>
+<div id="snacks" class="container-fluid">
+    <h2 style="background-color:black; color:white">Snacks</h2>
+
+<div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+			<h3>Cheese chilly</h3>
+			</div>
+		<div class="panel-body" >
+		<img src="images\cheese1.jpg"/>
+<p>Paneer is a popular Indo-Chinese dish.</p>
+		</div>
+		<div class="panel-footer">
+			<p></p>
+			<a href="https://www.indianhealthyrecipes.com/chilli-paneer-recipe/">Read More</a>
+		</div>
+      </div>
+    </div>
+
+	<div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+			<h3>Cauliflower</h3>
+			</div>
+		<div class="panel-body">
+		<img src="images\caul4.jpg" style="width:50%"/>
+<p>Honey chilli cauliflower is a famous Indo-Chinese recipe </p>
+		</div>
+		<div class="panel-footer">
+			<p></p>
+			<a href="https://food.ndtv.com/recipe-honey-cauliflower-99138">Read More</a>
+		</div>
+      </div>
+    </div>
+	<div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+			<h3> ChillyMushroom</h3>
+			</div>
+		<div class="panel-body">
+		<img src="images\mushroom1.jpg" style="width:50%"/>
+<p> a popular indo chinese starter recipe or a street food snack prepared with deep fried mushroom and chilli based sauce</p>
+
+		</div>
+		<div class="panel-footer">
+
+			<a href="https://www.indianhealthyrecipes.com/chili-mushroom-indo-chinese-recipe/">Read More</a>
+		</div>
+      </div>
+    </div>
+	<div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+			<h3>Noodles</h3>
+			</div>
+		<div class="panel-body">
+		<img src="images\noodles1.jpg" style="width:50%"/>
+<p>super quick to make delicious Vegetable noodles made with just a handful of ingredients.</p>
+		</div>
+		<div class="panel-footer">
+
+			<a href="noodles.html">Read More</a>
+		</div>
+      </div>
+    </div>
+	<div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+			<h3>Rolls</h3>
+			</div>
+		<div class="panel-body">
+		<img src="images\rolls1.jpg" style="width:50%"/>
+<p> Chicken Roll is a popular street food of Kolkata. Crisp, flaky parathas wrapped with a spicy chicken filling inside</p>
+		</div>
+		<div class="panel-footer">
+
+			<a href="rolls.html">Read More</a>
+		</div>
+      </div>
+    </div>
+	<div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+			<h3>salad</h3>
+			</div>
+		<div class="panel-body">
+		<img src="images\salad1.jpg" style="width:50%"/>
+<p>These easy salad recipes are perfect for lunches, summer cookouts, and dinner parties! Healthy and delicious, each one can double as a main or side dish!</p>
+		</div>
+		<div class="panel-footer">
+
+			<a href="salad.html">Read More</a>
+		</div>
+      </div>
+    </div>
+
+	</div>
+
+</Section>
+
+
+
+<Section>
+
+<div id="juices" class="container-fluid">
+    <h2 style="background-color:black; color:white">Juices</h2>
+<div id="foodItems" class="container-fluid">
+
+
+<div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+			<h3>Strawberry</h3>
+			</div>
+		<div class="panel-body">
+		<img src="images\strawberry.jpg" style="width:50% "/>
+<p>a fresh fruit juice simply....</p>
+		</div>
+		<div class="panel-footer">
+			<p></p>
+			<a href="https://foodviva.com/juice-recipes/strawberry-juice-recipe/">Read More</a>
+		</div>
+      </div>
+    </div>
+	<div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+			<h3>Grape</h3>
+			</div>
+		<div class="panel-body">
+		<img src="images\grape.jpg" style="width:50%"/>
+<p>It's very easy to make</p>
+		</div>
+		<div class="panel-footer">
+			<p></p>
+			<a href="https://www.simplyrecipes.com/recipes/making_grape_juice/">Read More</a>
+		</div>
+      </div>
+    </div>
+	<div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+			<h3> BlueBerry</h3>
+			</div>
+		<div class="panel-body">
+		<img src="images\berry.jpg" style="width:50%"/>
+<p> Blueberries Are Low in Calories But High in Nutrients</p>
+		</div>
+		<div class="panel-footer">
+
+			<a href="https://www.vegrecipesofindia.com/blueberry-juice-recipe/">Read More</a>
+		</div>
+      </div>
+    </div>
+	<div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+			<h3>Mojito</h3>
+			</div>
+		<div class="panel-body">
+		<img src="images\mojito.jpg" style="width:50%"/>
+<p>Considered Cuba's national drink, this lime and rum cocktail is a favorite with pirates, swashbucklers, and colorful ..</p>
+		</div>
+		<div class="panel-footer">
+
+			<a href="https://www.bbcgoodfood.com/recipes/mojito">Read More</a>
+		</div>
+      </div>
+    </div>
+	<div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+			<h3>Watermelon</h3>
+			</div>
+		<div class="panel-body">
+		<img src="images\watermelon.jpg" style="width:50%"/>
+<p>Watermelon juice is so simple to make with a blender. Refreshingly sweet and hydrating,</p>
+		</div>
+		<div class="panel-footer">
+
+			<a href="https://cookieandkate.com/watermelon-juice/">Read More</a>
+		</div>
+      </div>
+    </div>
+	<div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+			<h3>Mango</h3>
+			</div>
+		<div class="panel-body">
+		<img src="images\mango.jpg" style="width:50%"/>
+<p>This mango juice is made with no added sugar yet it is sufficiently sweet, fruity and so ... </p>
+		</div>
+		<div class="panel-footer">
+			<a href="https://www.vegrecipesofindia.com/mango-juice/">Read More</a>
+		</div>
+      </div>
+    </div>
+
+	</div>
+
+</Section>
+
+
+<Section>
+<div id="maincourse" class="container-fluid">
+    <h2 style="background-color:black; color:white">Main course</h2>
+
+<div id="foodItems" class="container-fluid">
+
+
+<div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+			<h3>Kadhai Paneer</h3>
+			</div>
+		<div class="panel-body">
+		<img src="images\panner.jpg" style="width:50% height:100%"/>
+		</div>
+		<div class="panel-footer">
+			<p></p>
+			<a href="https://www.indianhealthyrecipes.com/kadai-paneer-gravy-recipe/">Read More</a>
+		</div>
+      </div>
+    </div>
+	<div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+			<h3>Kurkuri Bhindi</h3>
+			</div>
+		<div class="panel-body">
+		<img src="images\kurkuri.jpg" style="width:50%"/>
+<p>This chatpati kurkuri bhindi recipe is one of the easiest Indian starters recipe</p>
+		</div>
+		<div class="panel-footer">
+			<p></p>
+			<a href="https://www.vegrecipesofindia.com/crispy-okra-fry-recipe-crisp-bhindi-fry/">Read More</a>
+		</div>
+      </div>
+    </div>
+	<div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+			<h3>Aloo gobi</h3>
+			</div>
+		<div class="panel-body">
+		<img src="images\gobi.jpg" style="width:50%"/>
+<p>Aloo Gobi is a very classic Indian dish of potatoes and cauliflower. It's a one pot, super simple, comforting dish that's ready in 30 minutes flat.</p>
+		</div>
+		<div class="panel-footer">
+
+			<a href="https://www.cookwithmanali.com/aloo-gobi/">Read More</a>
+		</div>
+      </div>
+    </div>
+	<div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+			<h3>Veg.Curry</h3>
+			</div>
+		<div class="panel-body">
+		<img src="images\curry.jpg" style="width:50%"/>
+		</div>
+		<div class="panel-footer">
+
+
+			<a href="https://www.olivemagazine.com/recipes/vegetarian/best-ever-vegetarian-curry-recipes/">Read More</a>
+		</div>
+      </div>
+    </div>
+	<div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+			<h3>Malai kofta</h3>
+			</div>
+		<div class="panel-body">
+		<img src="images\kofta.jpg" style="width:50%"/>
+<p>Malai kofta is a popular Indian vegetarian dish made of potato & paneer balls served with smooth, rich & creamy gravy.</p>
+		</div>
+		<div class="panel-footer">
+
+			<a href="https://www.indianhealthyrecipes.com/malai-kofta-recipe/">Read More</a>
+		</div>
+      </div>
+    </div>
+	<div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+			<h3>Veg.Pulao</h3>
+			</div>
+		<div class="panel-body">
+		<img src="images\pulao.jpg" style="width:50%"/>
+<p>Pulao is a one pot rice dish made by cooking fragrant basmati rice with aromatic spices, herbs & sometimes stock. </p>
+		</div>
+		<div class="panel-footer">
+
+			<a href="https://www.indianhealthyrecipes.com/pulao-recipe-veg-pulao-recipe/">Read More</a>
+		</div>
+      </div>
+    </div>
+
+	</div>
+
+</Section>
+
+
+
+
+<!-- Container (Contact Section) -->
+<Section>
+<div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-center" style="background-color:black; color:white">Contact</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p><span class="glyphicon glyphicon-user"></span>Yajat Loomba</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> yajatloomba@gmail
+		&nbsp &nbsp <button type ="button"><a class="btn btn-success" href="mailto:yajatloomba@gmail.com" role="button">Send Mail</a></button></p> <br>
+	<p><span class="glyphicon glyphicon-user"></span>Kunal Verma</p>
+	<p><span class="glyphicon glyphicon-envelope"></span>kunal124575@gmail
+		&nbsp &nbsp <button type ="button"><a class="btn btn-success" href="mailto:kunal124575@gmail.com">Send Mail</a></button></p>  <br>
+	<p><span class="glyphicon glyphicon-user"></span>Abhishek Attri</p>
+	<p><span class="glyphicon glyphicon-envelope"></span>abhishek365@gmail
+		&nbsp &nbsp <button type ="button"><a class="btn btn-success" href="mailto:abhishek365@gmail.com">Send Mail</a></button></p>
+    </div>
+    <div class="col-sm-7 slideanim">
+      <div class="row">
+				<form class="" action="/post" method="post">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comment" name="comment" placeholder="Comment" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Send</button>
+        </div>
+			</form>
+      </div>
+    </div>
+  </div>
+
+        <br> <span>  <a href="https://www.facebook.com/indianfoodrecipes/" class="fa fa-facebook" style="font-size:35px;"></a></span>
+           &nbsp &nbsp <a href="https://twitter.com/my_recipes?lang=en" class="fa fa-twitter" style="font-size:35px;"></a>
+          &nbsp &nbsp <a href="https://www.instagram.com/simplyrecipes/?hl=en" class="fa fa-instagram" style="font-size:35px;"></a>
+</div>
+<Section>
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+
+
+
+
+</footer>
+
+  <!-- <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=GiReHG0ZY_wtC4yRwAN5HfRKWwNygSvyPQu5bABT3qTwPCD6djqQlHOd_8mcC0zU_nyuCFT1OD0HvkyyrDDjAC4g7xhgm3xN7_3puN3JXP6722APiFE4GMM3BFk4mtCgI4dQru1KWrlp5J7KkxvPR57qAT5zgoLbcJ-gvngLcsZxDqyS8bjgvcq8Nx-15qqpuHYoMs54YAsd_2cMXsDUFZq8jrBttMDMfQ77W4thVmBYmYR_JtHZntJ19Q0M1dAdSPXcvlypnH66W53k6a3HjuHctmQxFVdHEvxAhQRCOnUAjg0o-SCvkan8T4YCyPzCq5K81anOaMFgKti1f7qsZCyXphfcQgR2BCMFT2Vu29SyWmSxpKZMBsbzOAw7cu1DizWSGpgK7OcqA8itjbwi07s6HaeW7Oy3G5YGoWivNCmTuRb3gKSRDysTgKSylDKYAXaKYZFRp82mICw9QYpCFmnPhsODkYfi56zzRf0ERJuTqvUNSNUGawvYVP3FoAR12EnrPtvaOve0T-L4Q-2YeDJSCpoYDUomxjeZYsZ4HSB3DXsA1__4yuwjW2jFO8eqwRNy4VvILvSkc48yYtCbIVi5fX_UQkbiiJ4ydRk2_JQEiwBJYZEbaT5-zxBGvXLjC2d9tlEQELf47X5OJFDbXBL75tENU0MC6kWvMGyAVvCgofkexewwj4jaGnqb8ylr1QpUG-Ko0KYUQmXjzei8q7brW6pW2uryPXH4hjEsqYFN0545u6mbR2_s3BbGwKBFliR4n6XjTJQ3eeFF1pQpVtyQ75UdJApcLDOtPghecmocSm8afOxeb4TqQBwJUtCg8feUPajgEACbRf0wfHZTfFp-akbu1387Po1Mt_bVTn18MNAP_x1EE9hOn50jPO7iZOnzd6V-tk1csZyo6o-0QF0dFBjBWE8l8WKRXhaTAU2YKPWzFsV9UeZn_Z0SkTFpX_I0EuJ6RCxq-ZYlnaZprbsqJ6vfvXIvz9TbyJZn00loP33a_FvZUSSnyQ7muRYZzyIe0ZePRe0HuyhtX_qrnyN3ze-SJyf141r7WMMRCzgzgEGFTaGu3YF6KQ-W9IS7x3UnX8v0_upBgcZ98qDVSI3BQf_y3XX7mcHrj3efvQBlubBAzkKAHDoGFv3iE2urZidQi3Pfx78oPHkdgwmWWplcdw4BwL-pTabORIV-l92SHmz7t1WULW5iB66_rsuCaKR9b-tIy118WnJSyZj7hQ" nonce="85481fbb92b0ceb52048a20553200f19" charset="UTF-8"></script> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar .move, footer a[href='#myPage']").on('click', function(event) {
+
+    // Prevent default anchor click behavior
+    event.preventDefault();
+
+    // Store hash
+    var hash = this.hash;
+
+    // Using jQuery's animate() method to add smooth page scroll
+    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+    $('html, body').animate({
+      scrollTop: $(hash).offset().top
+    }, 900, function(){
+
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+    });
+  });
+
+  // Slide in elements on scroll
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
+</body>
+</html>
