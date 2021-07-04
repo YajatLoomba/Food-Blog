@@ -2,6 +2,7 @@ var express = require("express")
 var bodyParser = require("body-parser")
 var mongoose = require("mongoose")
 const port = process.env.PORT || 3000;
+const DB ='mongodb+srv://admin:admin@3101@cluster1.z0nw9.mongodb.net/Users?retryWrites=true&w=majority'
 
 const app = express()
 
@@ -11,10 +12,15 @@ app.use(bodyParser.urlencoded({
     extended:true
 }))
 
-mongoose.connect('mongodb+srv://admin:admin@3101@cluster1.z0nw9.mongodb.net/Users',{
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+mongoose.connect(DB,{
+    useNewUrlParser:true,
+    useCreateIndex:true,
+    useUnifiedTopology:true,
+    useFindAndModify:false
+}).then(() =>{
+    console.log('connection successful');
+}).catch((err) => console.log('no connection'));
+
 
 var db = mongoose.connection;
 db.on('error',()=>console.log("Error in Connecting to Database"));
